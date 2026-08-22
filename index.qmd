@@ -3,121 +3,165 @@ title: "SAEB Classificador"
 description: "Aprendizagem de máquina aplicada a sinais educacionais e comportamentais do SAEB na Paraíba."
 page-layout: full
 toc: false
+code-tools: false
 ---
 
-::: {.hero}
-::: {.hero-copy}
+:::: {.home-hero}
+::: {.hero-lead}
 <p class="eyebrow">Educação pública · Ciência de dados · Paraíba</p>
 
-## É possível antecipar sinais de desempenho antes da prova?
-
-Este projeto investiga se respostas a questionários do SAEB — relacionadas à rotina de estudo, leitura e trajetória escolar — carregam sinal suficiente para classificar o desempenho dos estudantes. O objetivo é explorar como esse tipo de evidência poderia apoiar atenção pedagógica mais cedo, não automatizar decisões sobre alunos.
-
-[Explorar o estudo de caso](estudo-de-caso.qmd){.btn .btn-primary .btn-lg}
-[Entender o contexto](contexto.qmd){.btn .btn-outline-secondary .btn-lg}
+# É possível antecipar sinais de desempenho antes da prova?
 :::
 
-::: {.hero-panel}
-<p class="panel-label">O percurso em uma frase</p>
+::: {.hero-brief}
+Respostas sobre estudo, leitura e trajetória escolar podem carregar sinais relevantes antes da avaliação. Este projeto investiga essa hipótese em dados do SAEB — como evidência para atenção pedagógica, não para decisões automáticas sobre estudantes.
 
-**Seis ciclos do SAEB na Paraíba** são integrados, tratados e reduzidos a um problema de classificação comparado em três famílias de modelos.
-
-<div class="mini-flow" aria-label="Etapas do projeto">
-<span>2007–2017</span><b>→</b><span>tratamento</span><b>→</b><span>modelos</span>
-</div>
+::: {.hero-actions}
+[Percorrer o estudo de caso](estudo-de-caso.qmd){.btn .btn-primary .btn-lg}
+[Entender o contexto](contexto.qmd){.hero-text-link}
 :::
 :::
 
-::: {.metric-grid}
-::: {.metric}
-<span class="metric-value">6</span>
-<span class="metric-label">ciclos bienais integrados</span>
-:::
-::: {.metric}
-<span class="metric-value">3</span>
-<span class="metric-label">famílias de classificadores</span>
-:::
-::: {.metric}
-<span class="metric-value">1.173</span>
-<span class="metric-label">exemplos na etapa final registrada</span>
-:::
-::: {.metric}
-<span class="metric-value">90%</span>
-<span class="metric-label">acurácia registrada da árvore regularizada</span>
-:::
+::: {.hero-scope aria-label="Escopo e fluxo do projeto"}
+<p class="scope-label">Escopo do projeto</p>
+
+::: {.scope-fact}
+<span class="scope-value">2007–2017</span>
+<span class="scope-description">6 ciclos bienais · Paraíba</span>
 :::
 
-::: {.home-section}
-## Por que este trabalho existe
-
-O desempenho em uma avaliação não começa no dia da prova. Hábitos de leitura e estudo, histórico de reprovação e outras respostas contextuais podem revelar dificuldades com antecedência. O projeto transforma essa hipótese em um estudo empírico: organiza dados públicos, define um alvo, compara modelos e discute generalização.
-
-A proposta original declara foco em variáveis sociais e de estudo, sem usar renda como eixo central. Ainda assim, a base final inclui variáveis contextuais, como escolaridade e alfabetização dos responsáveis. Elas devem ser lidas como associações no conjunto estudado — não como causas do desempenho.
+::: {.scope-fact}
+<span class="scope-value">1.173</span>
+<span class="scope-description">exemplos na etapa final registrada</span>
 :::
 
-::: {.split-section}
-::: {.split-main}
-## O que é o SAEB
-
-O **Sistema de Avaliação da Educação Básica (SAEB)** combina testes e questionários contextuais para produzir um diagnóstico periódico da educação básica brasileira. Seus resultados também participam da composição do Ideb.
-
-Para este estudo, o SAEB oferece duas peças essenciais: uma medida de proficiência e informações sobre a experiência escolar dos estudantes. A análise usa registros da **Paraíba entre 2007 e 2017**.
-
-[Por que o SAEB importa →](contexto.qmd)
+::: {.scope-fact}
+<span class="scope-value">3</span>
+<span class="scope-description">famílias de classificadores</span>
 :::
 
-::: {.split-aside}
-### Como ler os resultados
-
-- Este é um estudo acadêmico de classificação, não um sistema em produção.
-- As métricas vêm da execução preservada nos notebooks.
-- Associação preditiva não equivale a causalidade.
-- A classe minoritária apresenta desempenho inferior à acurácia global.
+<ol class="scope-path" aria-label="Síntese do fluxo analítico">
+  <li>questionários</li>
+  <li>tratamento</li>
+  <li>classificação</li>
+</ol>
 :::
-:::
+::::
 
-::: {.home-section .section-tint}
-## Um estudo de caso, não uma pasta de notebooks
+:::: {.home-chapter .question-chapter}
+::: {.chapter-heading}
+<p class="section-index">01 · Pergunta de pesquisa</p>
 
-A narrativa pública segue a ordem real da análise: integração dos ciclos, tratamento das variáveis, correlações e engenharia de atributos, exploração das classes, balanceamento do alvo e comparação final.
-
-::: {.path-grid}
-::: {.path-card}
-<span class="path-number">01–03</span>
-
-### Construir a base
-
-Integração temporal, codificação das respostas e seleção de atributos.
-
-[Começar pela preparação](treatment_analysis/1_initial-treatment.ipynb)
+## O desempenho começa antes da prova.
 :::
 
-::: {.path-card}
-<span class="path-number">04–05</span>
+::: {.chapter-copy}
+Hábitos de leitura e estudo, histórico de reprovação e outras respostas contextuais podem revelar dificuldades com antecedência. O projeto transforma essa hipótese em um estudo empírico: organiza dados públicos, define um alvo, compara modelos e discute generalização.
 
-### Entender o alvo
+A proposta original evita tomar renda como eixo central. Ainda assim, a base final inclui variáveis como escolaridade e alfabetização dos responsáveis. Aqui, elas indicam **associações no recorte estudado — não causas do desempenho**.
+:::
+::::
 
-Distribuição das classes, PCA, interposição e balanceamento.
+:::: {.saeb-section}
+::: {.saeb-inner}
+::: {.saeb-heading}
+<p class="section-index">02 · A fonte dos sinais</p>
 
-[Ver a análise exploratória](treatment_analysis/4_data-analysis.ipynb)
+## O SAEB conecta aprendizagem e experiência escolar.
 :::
 
-::: {.path-card}
-<span class="path-number">06</span>
+::: {.saeb-copy}
+O **Sistema de Avaliação da Educação Básica** combina testes e questionários contextuais para produzir um diagnóstico periódico da educação brasileira. Seus resultados também participam da composição do Ideb.
 
-### Comparar os modelos
-
-Rede neural, árvore de decisão e SVM avaliados no mesmo relatório.
-
-[Ir aos resultados](AM_Projeto_Erlon_Lacerda_Maria_Bandeira-v2.ipynb)
+Neste estudo, o recorte da Paraíba reúne duas peças que precisam ser lidas em conjunto:
 :::
+
+::: {.saeb-roles}
+::: {.saeb-role}
+<span class="role-number">01</span>
+
+### Medida de proficiência
+
+O resultado usado para estruturar o alvo da classificação.
+:::
+
+::: {.saeb-role}
+<span class="role-number">02</span>
+
+### Experiência escolar
+
+Respostas sobre rotina de estudo, leitura e trajetória dos estudantes.
 :::
 :::
 
-::: {.home-section}
-## Contexto acadêmico
+[Por que o SAEB importa neste projeto →](contexto.qmd){.saeb-link}
 
-O trabalho foi desenvolvido por **Erlon Lacerda** e **Maria Bandeira** para a disciplina **Aprendizagem de Máquina**, no Centro de Informática da Universidade Federal da Paraíba, semestre 2024.1. O cronograma fornecido pela disciplina previa entrega em 23 de outubro de 2024 e apresentação no dia seguinte; o histórico do repositório identifica a versão final como apresentada.
+::: {.interpretation-note}
+<p class="note-label">Leitura responsável</p>
 
-[Conhecer o contexto do projeto](contexto.qmd#contexto-academico)
+Este é um estudo acadêmico, não um sistema em produção. As métricas vêm da execução preservada nos notebooks e mostram associação preditiva, não causalidade. A árvore regularizada registrou **90% de acurácia**, mas a classe minoritária teve desempenho inferior — o valor agregado não conta toda a história.
 :::
+:::
+::::
+
+:::: {.journey-section}
+::: {.journey-inner}
+::: {.journey-heading}
+<p class="section-index">03 · Percurso analítico</p>
+
+## Da base bruta à comparação dos modelos.
+:::
+
+::: {.journey-intro}
+A narrativa pública acompanha a ordem real da análise. Cada etapa abre os notebooks preservados, com código, gráficos e resultados.
+:::
+
+::: {.journey-list}
+::: {.journey-step}
+<span class="journey-number">01–03</span>
+
+### [Construir a base](treatment_analysis/1_initial-treatment.ipynb)
+
+<span class="journey-description">Integrar ciclos, codificar respostas e selecionar atributos.</span>
+
+[Abrir preparação →](treatment_analysis/1_initial-treatment.ipynb){.journey-action}
+:::
+
+::: {.journey-step}
+<span class="journey-number">04–05</span>
+
+### [Entender o alvo](treatment_analysis/4_data-analysis.ipynb)
+
+<span class="journey-description">Explorar classes, PCA, interposição e balanceamento.</span>
+
+[Abrir análise →](treatment_analysis/4_data-analysis.ipynb){.journey-action}
+:::
+
+::: {.journey-step}
+<span class="journey-number">06</span>
+
+### [Comparar os modelos](AM_Projeto_Erlon_Lacerda_Maria_Bandeira-v2.ipynb)
+
+<span class="journey-description">Avaliar rede neural, árvore de decisão e SVM no relatório final.</span>
+
+[Abrir resultados →](AM_Projeto_Erlon_Lacerda_Maria_Bandeira-v2.ipynb){.journey-action}
+:::
+:::
+
+[Ver o percurso completo do estudo de caso](estudo-de-caso.qmd){.journey-overview}
+:::
+::::
+
+:::: {.academic-section}
+::: {.academic-heading}
+<p class="section-index">04 · Proveniência</p>
+
+## Um projeto acadêmico da UFPB.
+:::
+
+::: {.academic-copy}
+Desenvolvido por **Erlon Lacerda** e **Maria Bandeira** para a disciplina **Aprendizagem de Máquina**, no Centro de Informática da Universidade Federal da Paraíba, semestre 2024.1.
+
+[Conhecer o contexto acadêmico →](contexto.qmd#contexto-academico)
+:::
+::::

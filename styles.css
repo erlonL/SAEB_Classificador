@@ -64,6 +64,7 @@ a:focus-visible,
 }
 
 .navbar {
+  --bs-navbar-padding-y: 0.5rem;
   border-bottom: 1px solid rgba(16, 42, 42, 0.1);
   background-color: color-mix(in srgb, var(--bs-body-bg) 91%, transparent) !important;
   backdrop-filter: blur(14px);

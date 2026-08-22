@@ -1,0 +1,84 @@
+---
+title: "Estudo de caso"
+description: "Da integração dos ciclos do SAEB à comparação de três classificadores."
+---
+
+## Como acompanhar a análise
+
+A sequência abaixo corresponde ao caminho canônico descrito no README e confirmado pelo relatório final. Cada página renderiza o notebook original como documento estático: código, tabelas, gráficos e saídas relevantes permanecem disponíveis, mas a leitura não exige abrir um arquivo `.ipynb` no GitHub.
+
+::: {.callout-note title="Saídas preservadas"}
+O site não reexecuta os modelos durante a publicação. Ele apresenta as saídas salvas nos notebooks, mantendo o resultado histórico e evitando que uma atualização de dependências altere silenciosamente as métricas.
+:::
+
+::: {.study-timeline}
+::: {.timeline-item}
+<span class="timeline-number">1</span>
+
+### [Preparação e integração](treatment_analysis/1_initial-treatment.ipynb)
+
+Reúne os ciclos bienais de 2007 a 2017, trata idades ausentes e remove questionários não respondidos.
+:::
+
+::: {.timeline-item}
+<span class="timeline-number">2</span>
+
+### [Tratamento das variáveis](treatment_analysis/2_columns-treatment.ipynb)
+
+Interpreta os dicionários do SAEB, faz mapeamentos ordinais, seleciona colunas e examina outliers.
+:::
+
+::: {.timeline-item}
+<span class="timeline-number">3</span>
+
+### [Correlações e engenharia de atributos](treatment_analysis/3_correlation_featureengineering.ipynb)
+
+Usa mapas de calor para explorar relações, filtra variáveis e produz o artefato usado na modelagem.
+:::
+
+::: {.timeline-item}
+<span class="timeline-number">4</span>
+
+### [Distribuição das classes e PCA](treatment_analysis/4_data-analysis.ipynb)
+
+Investiga o desbalanceamento do alvo e projeta a estrutura dos dados em componentes principais.
+:::
+
+::: {.timeline-item}
+<span class="timeline-number">5</span>
+
+### [Reestruturação e balanceamento](treatment_analysis/5_data-interpos.ipynb)
+
+Examina a interposição entre classes, define o alvo binário e prepara um subconjunto balanceado.
+:::
+
+::: {.timeline-item}
+<span class="timeline-number">6</span>
+
+### [Modelagem e comparação](AM_Projeto_Erlon_Lacerda_Maria_Bandeira-v2.ipynb)
+
+Compara rede neural, árvore de decisão regularizada e SVM no relatório apresentado na disciplina.
+:::
+:::
+
+## Resultado registrado
+
+A tabela resume a execução preservada no relatório final. A acurácia é útil para uma visão rápida, mas o F1 da classe minoritária mostra que o problema continua mais difícil para o grupo menos frequente.
+
+| Modelo | Acurácia no teste | F1 — classe 1 | Observação |
+|---|---:|---:|---|
+| Rede neural | 0,88 | 0,65 | Erros de treino e validação próximos na execução registrada |
+| Árvore de decisão regularizada | **0,90** | **0,71** | Melhor resultado entre os três modelos neste teste |
+| SVM | 0,87 | 0,63 | Hiperparâmetros selecionados com busca em grade e 5 folds |
+
+: Métricas impressas no notebook final para um conjunto de teste com 235 exemplos.
+
+::: {.callout-warning title="Como não ler esta tabela"}
+A diferença entre modelos é pequena e resulta de uma única configuração histórica do estudo. Ela não estabelece superioridade geral, não mede impacto pedagógico e não substitui validação em outros anos ou populações.
+:::
+
+## O que fica fora da narrativa principal
+
+O repositório também contém notebooks de prática, versões exploratórias por família de modelo e arquivos temporários. Eles são valiosos como histórico de desenvolvimento, mas não formam uma sequência única e alguns foram superados pelo relatório integrado. Permanecem disponíveis no [repositório completo](https://github.com/erlonL/saeb), sem ocupar a navegação do caso de estudo.
+
+[Começar a análise](treatment_analysis/1_initial-treatment.ipynb){.btn .btn-primary}

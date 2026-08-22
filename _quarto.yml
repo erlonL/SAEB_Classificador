@@ -1,0 +1,96 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - contexto.qmd
+    - estudo-de-caso.qmd
+    - treatment_analysis/1_initial-treatment.ipynb
+    - treatment_analysis/2_columns-treatment.ipynb
+    - treatment_analysis/3_correlation_featureengineering.ipynb
+    - treatment_analysis/4_data-analysis.ipynb
+    - treatment_analysis/5_data-interpos.ipynb
+    - AM_Projeto_Erlon_Lacerda_Maria_Bandeira-v2.ipynb
+    - reproducibilidade.qmd
+  resources:
+    - docs/Projeto_Final_da_disciplina.pdf
+    - img/tree.png
+
+lang: pt-BR
+date-format: "D [de] MMMM [de] YYYY"
+
+website:
+  title: "SAEB Classificador"
+  site-url: "https://erlonl.github.io/saeb/"
+  description: "Estudo de caso de aprendizagem de máquina sobre desempenho estudantil no SAEB da Paraíba."
+  image: "img/tree.png"
+  page-navigation: true
+  open-graph: true
+  twitter-card: true
+  search:
+    location: navbar
+    type: overlay
+  repo-url: "https://github.com/erlonL/saeb"
+  repo-actions: [source, issue]
+  navbar:
+    pinned: true
+    left:
+      - text: "Início"
+        href: index.qmd
+      - text: "Contexto"
+        href: contexto.qmd
+      - text: "Estudo de caso"
+        href: estudo-de-caso.qmd
+      - text: "Reprodutibilidade"
+        href: reproducibilidade.qmd
+    right:
+      - icon: github
+        href: "https://github.com/erlonL/saeb"
+        aria-label: "Repositório no GitHub"
+  sidebar:
+    - title: "Estudo de caso"
+      style: floating
+      collapse-level: 1
+      contents:
+        - text: "Visão geral"
+          href: estudo-de-caso.qmd
+        - section: "Preparação dos dados"
+          contents:
+            - text: "1 · Preparação e integração"
+              href: treatment_analysis/1_initial-treatment.ipynb
+            - text: "2 · Tratamento das variáveis"
+              href: treatment_analysis/2_columns-treatment.ipynb
+            - text: "3 · Correlações e atributos"
+              href: treatment_analysis/3_correlation_featureengineering.ipynb
+            - text: "4 · Classes e PCA"
+              href: treatment_analysis/4_data-analysis.ipynb
+            - text: "5 · Alvo e balanceamento"
+              href: treatment_analysis/5_data-interpos.ipynb
+        - text: "6 · Modelagem e comparação"
+          href: AM_Projeto_Erlon_Lacerda_Maria_Bandeira-v2.ipynb
+  page-footer:
+    left: "Erlon Lacerda e Maria Bandeira · UFPB · 2024"
+    right:
+      - text: "Código-fonte"
+        href: "https://github.com/erlonL/saeb"
+      - text: "Reprodutibilidade"
+        href: reproducibilidade.qmd
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-summary: "Mostrar código"
+    code-tools: true
+    code-overflow: wrap
+    anchor-sections: true
+    smooth-scroll: true
+    link-external-newwindow: true
+
+execute:
+  enabled: false

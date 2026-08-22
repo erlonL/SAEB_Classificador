@@ -6,3 +6,8 @@ saeb_pb_2017-2007_treated.pkl
 saeb_pb_2017-2007_cleaned.csv
 *copy.ipynb
 *.zip
+
+# Quarto
+_site/
+/.quarto/
+**/*.quarto_ipynb

@@ -1,0 +1,80 @@
+---
+title: "Repositório e reprodutibilidade"
+description: "Como o site é publicado, como a análise foi organizada e quais limitações impedem uma reprodução integral imediata."
+---
+
+## Duas camadas de reprodutibilidade
+
+Este projeto distingue a **publicação do estudo** da **reexecução científica**.
+
+1. O site é reproduzível apenas com o Quarto: ele converte os notebooks e suas saídas já armazenadas em páginas estáticas.
+2. A análise completa depende do ambiente Python, dos dados brutos e de serviços externos usados na aquisição. O repositório preserva grande parte dos artefatos intermediários, mas não contém tudo o que seria necessário para refazer cada resultado do zero sem reconstrução adicional.
+
+Essa separação mantém a publicação rápida e fiel à execução apresentada, sem fingir que o ambiente científico histórico está integralmente fixado.
+
+## Publicar ou visualizar o site
+
+Com [Quarto](https://quarto.org/) 1.10.18 instalado:
+
+```bash
+quarto preview
+```
+
+Para gerar todos os arquivos estáticos em `_site/`:
+
+```bash
+quarto render
+```
+
+A configuração desativa execução de células. Portanto, Python, TensorFlow e os dados de treinamento não são necessários para visualizar ou publicar as saídas já salvas.
+
+## Caminho canônico da análise
+
+| Ordem | Fonte | Papel | Artefato principal |
+|---:|---|---|---|
+| 0 | `data-gathering/download_data.ipynb` | Consulta os ciclos na Base dos Dados | arquivos anuais em `data/raw/` |
+| 1 | `treatment_analysis/1_initial-treatment.ipynb` | Integra e limpa os ciclos | base multianual |
+| 2 | `treatment_analysis/2_columns-treatment.ipynb` | Mapeia respostas e trata colunas | base tratada |
+| 3 | `treatment_analysis/3_correlation_featureengineering.ipynb` | Seleciona e transforma atributos | `saeb_pb_2017-2007_fe.pkl` |
+| 4 | `treatment_analysis/4_data-analysis.ipynb` | Explora classes e PCA | visualizações e diagnóstico |
+| 5 | `treatment_analysis/5_data-interpos.ipynb` | Reestrutura e balanceia o alvo | base balanceada |
+| 6 | `AM_Projeto_Erlon_Lacerda_Maria_Bandeira-v2.ipynb` | Treina e compara os modelos | métricas e conclusões finais |
+
+O diretório `models/` conserva experimentos por família de algoritmo. O diretório `temp/` registra explorações intermediárias; nenhum dos dois é necessário para acompanhar a narrativa publicada.
+
+## O que o repositório preserva
+
+- CSV tratado com 232.882 registros, conforme a inspeção existente no repositório;
+- artefatos serializados das etapas de limpeza, engenharia de atributos e balanceamento;
+- dicionários de variáveis do SAEB de 2015 e 2017;
+- amostras de rastreamento por ciclo;
+- saídas, gráficos e métricas nos notebooks executados;
+- notebook de aquisição com consulta via Base dos Dados.
+
+## Limitações para reexecutar tudo
+
+::: {.callout-warning title="Reprodução integral ainda requer reconstrução"}
+O snapshot atual não contém `data/raw/`, embora as duas primeiras etapas esperem arquivos nesse diretório. Também não há `requirements.txt`, `pyproject.toml` ou `environment.yml` com versões fixadas. Os metadados dos notebooks registram Python 3.12.3, mas não as versões das bibliotecas.
+:::
+
+As dependências observadas incluem Pandas, NumPy, scikit-learn, TensorFlow/Keras, imbalanced-learn, Matplotlib, Seaborn, Plotly, Base dos Dados e python-dotenv. O notebook de aquisição lê um identificador de faturamento do ambiente pela variável `BILLING_ID`; nenhum valor ou credencial é versionado.
+
+Por essas razões, a ordem acima é uma referência de recuperação, não uma promessa de reprodução bit a bit. Os arquivos intermediários permitem retomar a análise mais adiante no fluxo, mas versões futuras deveriam adicionar um ambiente fixado e instruções de aquisição testadas.
+
+## Como a publicação automática funciona
+
+O workflow `.github/workflows/publish.yml`:
+
+1. baixa o repositório;
+2. instala a versão fixada do Quarto;
+3. renderiza somente as páginas declaradas em `_quarto.yml`;
+4. envia `_site/` como artefato do GitHub Pages;
+5. publica sem commitar arquivos gerados.
+
+A única ativação manual necessária é selecionar **GitHub Actions** como fonte em **Settings → Pages** do repositório. Depois disso, cada push em `main` atualiza o site.
+
+## Adicionar um novo notebook
+
+Salve o notebook com saídas relevantes, adicione título e descrição em uma primeira célula Markdown com front matter YAML e registre o arquivo em dois pontos de `_quarto.yml`: `project.render` e a seção apropriada de `website.sidebar`. Em seguida, execute `quarto render` antes de enviar a alteração.
+
+[Ver o código-fonte no GitHub](https://github.com/erlonL/saeb){.btn .btn-primary}

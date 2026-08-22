@@ -1,0 +1,123 @@
+---
+title: "SAEB Classificador"
+description: "Aprendizagem de máquina aplicada a sinais educacionais e comportamentais do SAEB na Paraíba."
+page-layout: full
+toc: false
+---
+
+::: {.hero}
+::: {.hero-copy}
+<p class="eyebrow">Educação pública · Ciência de dados · Paraíba</p>
+
+## É possível antecipar sinais de desempenho antes da prova?
+
+Este projeto investiga se respostas a questionários do SAEB — relacionadas à rotina de estudo, leitura e trajetória escolar — carregam sinal suficiente para classificar o desempenho dos estudantes. O objetivo é explorar como esse tipo de evidência poderia apoiar atenção pedagógica mais cedo, não automatizar decisões sobre alunos.
+
+[Explorar o estudo de caso](estudo-de-caso.qmd){.btn .btn-primary .btn-lg}
+[Entender o contexto](contexto.qmd){.btn .btn-outline-secondary .btn-lg}
+:::
+
+::: {.hero-panel}
+<p class="panel-label">O percurso em uma frase</p>
+
+**Seis ciclos do SAEB na Paraíba** são integrados, tratados e reduzidos a um problema de classificação comparado em três famílias de modelos.
+
+<div class="mini-flow" aria-label="Etapas do projeto">
+<span>2007–2017</span><b>→</b><span>tratamento</span><b>→</b><span>modelos</span>
+</div>
+:::
+:::
+
+::: {.metric-grid}
+::: {.metric}
+<span class="metric-value">6</span>
+<span class="metric-label">ciclos bienais integrados</span>
+:::
+::: {.metric}
+<span class="metric-value">3</span>
+<span class="metric-label">famílias de classificadores</span>
+:::
+::: {.metric}
+<span class="metric-value">1.173</span>
+<span class="metric-label">exemplos na etapa final registrada</span>
+:::
+::: {.metric}
+<span class="metric-value">90%</span>
+<span class="metric-label">acurácia registrada da árvore regularizada</span>
+:::
+:::
+
+::: {.home-section}
+## Por que este trabalho existe
+
+O desempenho em uma avaliação não começa no dia da prova. Hábitos de leitura e estudo, histórico de reprovação e outras respostas contextuais podem revelar dificuldades com antecedência. O projeto transforma essa hipótese em um estudo empírico: organiza dados públicos, define um alvo, compara modelos e discute generalização.
+
+A proposta original declara foco em variáveis sociais e de estudo, sem usar renda como eixo central. Ainda assim, a base final inclui variáveis contextuais, como escolaridade e alfabetização dos responsáveis. Elas devem ser lidas como associações no conjunto estudado — não como causas do desempenho.
+:::
+
+::: {.split-section}
+::: {.split-main}
+## O que é o SAEB
+
+O **Sistema de Avaliação da Educação Básica (SAEB)** combina testes e questionários contextuais para produzir um diagnóstico periódico da educação básica brasileira. Seus resultados também participam da composição do Ideb.
+
+Para este estudo, o SAEB oferece duas peças essenciais: uma medida de proficiência e informações sobre a experiência escolar dos estudantes. A análise usa registros da **Paraíba entre 2007 e 2017**.
+
+[Por que o SAEB importa →](contexto.qmd)
+:::
+
+::: {.split-aside}
+### Como ler os resultados
+
+- Este é um estudo acadêmico de classificação, não um sistema em produção.
+- As métricas vêm da execução preservada nos notebooks.
+- Associação preditiva não equivale a causalidade.
+- A classe minoritária apresenta desempenho inferior à acurácia global.
+:::
+:::
+
+::: {.home-section .section-tint}
+## Um estudo de caso, não uma pasta de notebooks
+
+A narrativa pública segue a ordem real da análise: integração dos ciclos, tratamento das variáveis, correlações e engenharia de atributos, exploração das classes, balanceamento do alvo e comparação final.
+
+::: {.path-grid}
+::: {.path-card}
+<span class="path-number">01–03</span>
+
+### Construir a base
+
+Integração temporal, codificação das respostas e seleção de atributos.
+
+[Começar pela preparação](treatment_analysis/1_initial-treatment.ipynb)
+:::
+
+::: {.path-card}
+<span class="path-number">04–05</span>
+
+### Entender o alvo
+
+Distribuição das classes, PCA, interposição e balanceamento.
+
+[Ver a análise exploratória](treatment_analysis/4_data-analysis.ipynb)
+:::
+
+::: {.path-card}
+<span class="path-number">06</span>
+
+### Comparar os modelos
+
+Rede neural, árvore de decisão e SVM avaliados no mesmo relatório.
+
+[Ir aos resultados](AM_Projeto_Erlon_Lacerda_Maria_Bandeira-v2.ipynb)
+:::
+:::
+:::
+
+::: {.home-section}
+## Contexto acadêmico
+
+O trabalho foi desenvolvido por **Erlon Lacerda** e **Maria Bandeira** para a disciplina **Aprendizagem de Máquina**, no Centro de Informática da Universidade Federal da Paraíba, semestre 2024.1. O cronograma fornecido pela disciplina previa entrega em 23 de outubro de 2024 e apresentação no dia seguinte; o histórico do repositório identifica a versão final como apresentada.
+
+[Conhecer o contexto do projeto](contexto.qmd#contexto-academico)
+:::

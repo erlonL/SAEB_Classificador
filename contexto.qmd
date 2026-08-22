@@ -1,0 +1,53 @@
+---
+title: "Contexto e motivação"
+description: "O papel do SAEB, a pergunta do projeto e seu contexto acadêmico."
+---
+
+## A pergunta do projeto
+
+O projeto parte de uma pergunta simples e socialmente relevante: **respostas fornecidas antes da prova podem ajudar a identificar estudantes que merecem acompanhamento pedagógico mais próximo?**
+
+A análise usa variáveis dos questionários do SAEB ligadas a hábitos de estudo, leitura, trajetória escolar e contexto familiar. O repositório declara a intenção de não tomar condições socioeconômicas como eixo explicativo central. A etapa final, porém, conserva indicadores contextuais como escolaridade e alfabetização dos responsáveis; por isso, os resultados devem ser interpretados com cuidado.
+
+::: {.callout-important title="Limite de interpretação"}
+Os modelos encontram associações preditivas no recorte estudado. Eles não demonstram que uma resposta causa determinado desempenho, nem justificam decisões automáticas sobre estudantes ou escolas.
+:::
+
+## Por que o SAEB importa
+
+O **Sistema de Avaliação da Educação Básica** é um conjunto de avaliações externas em larga escala conduzido pelo Inep. Segundo a descrição preservada no próprio projeto, o sistema:
+
+- produz um diagnóstico da educação básica e de fatores associados ao desempenho;
+- combina testes de aprendizagem com questionários contextuais;
+- é aplicado periodicamente em redes públicas e em uma amostra da rede privada;
+- contribui, junto de outros indicadores, para o Índice de Desenvolvimento da Educação Básica (Ideb).
+
+Essa combinação torna o SAEB relevante para além de uma nota: ela permite observar resultados de aprendizagem em conjunto com informações sobre a experiência educacional.
+
+## Como o SAEB entra nesta análise
+
+O recorte reúne dados da **Paraíba** para os ciclos de **2007, 2009, 2011, 2013, 2015 e 2017**. A fonte de aquisição indicada pelo repositório é a [Base dos Dados](https://basedosdados.org/dataset/e083c9a2-1cee-4342-bedc-535cbad6f3cd?table=d429a79a-eca1-461c-9c1f-ce65d61048a1).
+
+O fluxo analítico harmoniza os ciclos, mapeia códigos dos questionários para valores interpretáveis, examina correlações, reduz atributos, estuda a distribuição das classes e reestrutura o alvo antes da comparação entre modelos. A versão final trabalha com uma classificação binária e registra 1.173 exemplos, 13 atributos e uma divisão separada de treino, validação e teste.
+
+## Por que o problema é importante
+
+Uma avaliação em larga escala costuma chegar ao debate público como um resultado agregado. A motivação deste projeto está em olhar para os sinais que antecedem esse resultado. Se padrões ligados ao cotidiano escolar aparecem de modo consistente, eles podem orientar novas perguntas de pesquisa e formas de acompanhamento.
+
+Isso não transforma previsão em intervenção. Para chegar a uma aplicação responsável seriam necessários, entre outros pontos, validação temporal e externa, análise de vieses, calibração, governança e participação de profissionais da educação. O repositório deve ser entendido como um **experimento acadêmico**, não como uma ferramenta decisória pronta.
+
+## Contexto acadêmico {#contexto-academico}
+
+O trabalho foi desenvolvido por **Erlon Lacerda** e **Maria Bandeira** para a disciplina **Aprendizagem de Máquina**, do Centro de Informática da **Universidade Federal da Paraíba (UFPB)**, semestre **2024.1**.
+
+O [enunciado original do projeto](docs/Projeto_Final_da_disciplina.pdf) previa:
+
+- implementação em Python;
+- tratamento e preparação dos dados;
+- comparação entre rede neural, árvore de decisão e SVM;
+- análise de generalização, regularização e métricas;
+- entrega até 23 de outubro de 2024 e apresentação no dia seguinte.
+
+O histórico Git registra posteriormente uma versão descrita como “final and presented project version”. Nenhum evento público, conferência ou publicação adicional é identificado no repositório.
+
+[Seguir para o estudo de caso](estudo-de-caso.qmd){.btn .btn-primary}

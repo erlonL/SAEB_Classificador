@@ -1,3 +1,13 @@
+# SAEB Classificador
+
+Estudo acadêmico de aprendizagem de máquina sobre desempenho estudantil no SAEB da Paraíba, desenvolvido por Erlon Lacerda e Maria Bandeira na UFPB.
+
+**Site do projeto:** [erlonl.github.io/saeb](https://erlonl.github.io/saeb/)
+
+O site Quarto apresenta a motivação, o contexto e os notebooks canônicos como um estudo de caso navegável. Para visualizar localmente, instale o Quarto 1.10.18 e execute `quarto preview`; para gerar `_site/`, execute `quarto render`. As células não são reexecutadas durante a publicação.
+
+Consulte [Repositório e reprodutibilidade](reproducibilidade.qmd) para a ordem completa da análise, dependências observadas e limitações do snapshot atual.
+
 # Introdução
 
 O nosso objetivo para escolher o dataset era avaliar as notas e desempenho dos alunos com base em variáveis sociais / de estudo, sem considerar questões socioeconômicas. Sobre aplicações sociais, pensamos em como seria importante acompanhar o aluno durante o tempo anterior à prova, fazendo questionários antes, ir trabalhando nos pontos fracos do aluno e melhorar o desempenho geral do ensino nas escolas municipais com base nas respostas dadas pelo aluno. Esse estudo promove a ideia de que o desempenho do aluno poderia ser "previsto", mesmo se o questionário fosse respondido meses antes da prova em si, o que trás um alarme para como a qualidade de ensino deve ser melhorada, mas o aluno também pode ter melhores resultados, caso tenha um acompanhamento considerando essas variáveis.
@@ -18,4 +28,6 @@ Após a escolha do Dataset, disponível em [Base dos Dados - SAEB](https://based
 
 # Resultados
 
-## Veja em [Relatório Final](/AM_Projeto_Erlon_Lacerda_Maria_Bandeira-v2.ipynb)
+Veja a [visão geral do estudo de caso](estudo-de-caso.qmd) ou abra diretamente o [relatório final renderizado](AM_Projeto_Erlon_Lacerda_Maria_Bandeira-v2.ipynb).
+
+O site é publicado automaticamente pelo workflow `.github/workflows/publish.yml`. No GitHub, selecione **Settings → Pages → Source: GitHub Actions** uma única vez para ativar a URL.
